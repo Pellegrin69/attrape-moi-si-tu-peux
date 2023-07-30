@@ -21,5 +21,15 @@ class GameTest extends TestCase
         $this->assertInstanceOf(Player::class, $playerTwo);
     }
 
+    public function testCreateGameBoard()
+    {
+        $game = new Game();
+        $board = $game->createGameBoard();
+
+        $this->assertCount(10, $board);
+        foreach ($board as $row) {
+            $this->assertCount(10, $row);
+        }
+    }
 }
 
